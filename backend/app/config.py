@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     app_env: str = "development"
     app_host: str = "0.0.0.0"
     app_port: int = 8000
-    database_url: str = "postgresql+psycopg://postgres:postgres@localhost:5432/inventory_db"
+    database_url: str = "postgresql+psycopg://postgres:postgres@localhost:5433/inventory_db"
     cors_origins: str = "http://localhost:5173"
 
     model_config = SettingsConfigDict(

@@ -29,16 +29,23 @@ README.md
 
 ## Backend Setup
 
-1. Create a virtual environment inside `backend/`.
-2. Install dependencies from `backend/requirements.txt`.
-3. Copy `backend/.env.example` to `backend/.env`.
-4. Update `DATABASE_URL` to point to your PostgreSQL database.
+1. Start PostgreSQL in Docker from the project root:
+
+```bash
+docker compose up -d db
+```
+
+2. Create a virtual environment inside `backend/`.
+3. Install dependencies from `backend/requirements.txt`.
+4. Copy `backend/.env.example` to `backend/.env`.
 5. Start the API with:
 
 ```bash
 cd backend
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
+
+The default `DATABASE_URL` already points to the Dockerized Postgres instance exposed on `localhost:5433`, which avoids conflicts with any local Postgres service already using port `5432`.
 
 ## Frontend Setup
 
@@ -79,6 +86,5 @@ npm run dev
 
 ## Remaining Work
 
-- Add Docker and Docker Compose
 - Deploy frontend and backend
 - Push to GitHub and publish links
